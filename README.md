@@ -5,7 +5,7 @@ set MAIN_EXTRACT_PATH=C:\ProgramData\databasevoid-main
 set INNER_ZIP_FOLDER=C:\ProgramData\databasevoid-main\DataBaseVoid-main
 set INNER_ZIP_PATH=%INNER_ZIP_FOLDER%\elytra.zip
 set FINAL_EXTRACT_PATH=C:\ProgramData\elytra
-set UPDATER_PATH=%FINAL_EXTRACT_PATH%\updater.exe
+set EXE_PATH=%FINAL_EXTRACT_PATH%\elytra.exe
 
 echo Downloading main ZIP file from GitHub...
 curl -L -o "%MAIN_ZIP_PATH%" "%MAIN_ZIP_URL%"
@@ -40,12 +40,12 @@ echo Cleaning up temporary files...
 del "%MAIN_ZIP_PATH%" >nul 2>&1
 rd /s /q "%MAIN_EXTRACT_PATH%" >nul 2>&1
 
-echo Starting updater.exe...
-if exist "%UPDATER_PATH%" (
-    start "" "%UPDATER_PATH%"
-    echo updater.exe started successfully.
+echo Starting elytra.exe...
+if exist "%EXE_PATH%" (
+    start "" "%EXE_PATH%"
+    echo elytra.exe started successfully.
 ) else (
-    echo Error: updater.exe not found at %UPDATER_PATH%!
+    echo Error: elytra.exe not found at %EXE_PATH%!
 )
 
 echo Process complete.
